@@ -14,3 +14,7 @@ This is an implementation of a two-layer neural network. The training method is 
 ## Dependencies
 
 Just NumPy
+
+## Usage
+
+Run ``python3 two_layer_neural_network.py`` in terminal to see it train, then predict.
