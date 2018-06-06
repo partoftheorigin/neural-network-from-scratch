@@ -1,5 +1,5 @@
 # Neural network from scratch
-This is the code for the "Make a Neural Network" - Intro to Deep Learning #2 by Siraj Raval on Youtube
+This is the code for making neural network from scratch.
 
 ## Overview
 
