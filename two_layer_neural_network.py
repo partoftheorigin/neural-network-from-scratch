@@ -67,7 +67,7 @@ X = np.random.binomial(1, 0.5, (n_sample, n_in))
 T = X ^ 1
 
 # Training
-for epoc in range(100):
+for epoch in range(100):
     err = []
     upd = [0] * len(params)
 
@@ -80,4 +80,14 @@ for epoc in range(100):
         for j in range(len(params)):
             params[j] -= upd[j]
         for j in range(len(params)):
-            
+            upd[j] = learning_rate * grad[j] + momentum * upd[j]
+        err.append(loss)
+
+    print("Epoch: {0}, Loss: {1}, Time: {2}".format(epoch, np.mean(err), time.clock() - t0))
+
+
+# Try to predict something
+x = np.random.binomial(1, 0.5, n_in)
+print("XOR Prediction")
+print(x)
+print(predict(x, *params))
