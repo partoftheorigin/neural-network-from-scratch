@@ -19,7 +19,8 @@ class NeuralNetwork():
 
     def __sigmoid_derivative(self, x):
         """The derivative of the Sigmoid function. This is the gradient of the
-        sigmoid curve. It indicates how confident we are about the existing weight."""
+        sigmoid curve. It indicates how confident we are about the existing
+        weight."""
         return x * (1 - x)
 
     def think(self, inputs):
@@ -27,7 +28,8 @@ class NeuralNetwork():
         (our single neuron)"""
         return self.__sigmoid(dot(inputs, self.synaptic_weights))
 
-    def train(self, training_set_inputs, training_set_outputs, number_of_training_iterations):
+    def train(self, training_set_inputs, training_set_outputs, \
+    number_of_training_iterations):
         """We train the neural network through the process of trial and error.
         Adjusting the synaptic weights each time."""
         for iteration in range(number_of_training_iterations):
@@ -39,9 +41,11 @@ class NeuralNetwork():
             error = training_set_outputs - output
 
             # Multiply the error by the input and again by the gradient of the
-            # sigmoid curve. This means less confident weights are adjusted more.
-            # This means inputs which are zero, do not cause changes to the weights.
-            adjustment = dot(training_set_inputs.T, error * self.__sigmoid_derivative(output))
+            # sigmoid curve. This means less confident weights are adjusted
+            # more. This means inputs which are zero, do not cause changes to the
+            # weights.
+            adjustment = dot(training_set_inputs.T, \
+            error * self.__sigmoid_derivative(output))
 
             # Adjust the weights
             self.synaptic_weights += adjustment
